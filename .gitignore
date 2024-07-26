@@ -41,6 +41,9 @@ Frontend/build/
 # Dependency directories
 node_modules/
 
+# Build
+./build/
+
 # TypeScript cache
 *.tsbuildinfo
 
