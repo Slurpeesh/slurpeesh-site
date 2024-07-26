@@ -1,6 +1,15 @@
+import { useAppSelector } from '@/app/hooks/useActions'
+import getText from '@/app/locale'
 import Section from '@/entities/Section/Section'
 import SkillCard from '@/entities/SkillCard/SkillCard'
 import OtherSvg from '@/features/svg/OtherSvg'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/shared/Tooltip/Tooltip'
+import BlitzAskAccordion from '@/widgets/BlitzAskAccordion/BlitzAskAccordion'
 import CarouselProjects from '@/widgets/CarouselProjects/CarouselProjects'
 import CssSvg from '../../features/svg/CssSvg'
 import ElectronSvg from '../../features/svg/ElectronSvg'
@@ -19,44 +28,66 @@ import TsSvg from '../../features/svg/TsSvg'
 import WebpackSvg from '../../features/svg/WebpackSvg'
 
 const skillsSvg = [
-  <TsSvg />,
-  <JsSvg />,
-  <ReactSvg />,
-  <ReactRouterSvg />,
-  <WebpackSvg />,
-  <ElectronSvg />,
-  <NodejsSvg />,
-  <TailwindSvg />,
-  <SassSvg />,
-  <ReduxSvg />,
-  <HtmlSvg />,
-  <CssSvg />,
-  <PythonSvg />,
-  <KotlinSvg />,
-  <FigmaSvg />,
-  <OtherSvg />,
-]
+  [<TsSvg />, 'TypeScript', 'tooltipTypeScript'],
+  [<JsSvg />, 'JavaScript', 'tooltipJavaScript'],
+  [<ReactSvg />, 'React', 'tooltipReact'],
+  [<ReactRouterSvg />, 'React Router', 'tooltipReactRouter'],
+  [<WebpackSvg />, 'Webpack', 'tooltipWebpack'],
+  [<ElectronSvg />, 'Electron', 'tooltipElectron'],
+  [<NodejsSvg />, 'Node.JS', 'tooltipNodeJS'],
+  [<TailwindSvg />, 'TailwindCSS', 'tooltipTailwind'],
+  [<SassSvg />, 'Sass', 'tooltipSass'],
+  [<ReduxSvg />, 'Redux', 'tooltipRedux'],
+  [<HtmlSvg />, 'HTML', 'tooltipHTML'],
+  [<CssSvg />, 'CSS', 'tooltipCSS'],
+  [<PythonSvg />, 'Python', 'tooltipPython'],
+  [<KotlinSvg />, 'Kotlin', 'tooltipKotlin'],
+  [<FigmaSvg />, 'Figma', 'tooltipFigma'],
+  [<OtherSvg />, 'Others', 'tooltipOther'],
+] as const
 
 export default function Main() {
+  const lang = useAppSelector((state) => state.lang.value)
   return (
     <main>
       <Section
-        className="h-screen flex flex-col bg-green-300 snap-center snap-always"
-        sectionTitle="Skills"
+        className="flex md:hidden h-screen flex-col p-0 sm:p-5 bg-purple-300 snap-center snap-always"
+        sectionTitle={getText(lang, 'questions')}
+        id="Questions"
+      >
+        <div className="flex-grow flex justify-center items-center">
+          <BlitzAskAccordion className="flex-grow" />
+        </div>
+      </Section>
+      <Section
+        className="h-screen flex flex-col p-0 sm:p-5 bg-green-300 snap-center snap-always"
+        sectionTitle={getText(lang, 'skills')}
         id="Skills"
       >
-        <div className="flex flex-wrap justify-between gap-10 mt-10">
-          {skillsSvg.map((svg) => (
-            <SkillCard>{svg}</SkillCard>
+        <div className="flex flex-wrap justify-between gap-2 sm:gap-5 md:gap-10 md:mt-10">
+          {skillsSvg.map((list, index) => (
+            <TooltipProvider key={index} delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger className="cursor-default">
+                  <SkillCard className="w-14 xs:w-20 sm:w-24 xl:w-32 min-h-14 xs:min-h-20 sm:min-h-24 xl:min-h-32 flex">
+                    {list[0]}
+                  </SkillCard>
+                </TooltipTrigger>
+                <TooltipContent className="bg-white max-w-64 sm:max-w-80">
+                  <h5 className="font-medium text-base">{list[1]}</h5>
+                  <p>{getText(lang, list[2])}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           ))}
         </div>
-        <p className="flex-grow font-semibold text-center place-content-center text-5xl">
-          Hover on icons to see more!
+        <p className="hidden lg:block flex-grow font-extrabold text-center place-content-center text-5xl">
+          {getText(lang, 'hoverToSeeMore')}
         </p>
       </Section>
       <Section
         className="h-screen flex flex-col bg-blue-300 snap-center snap-always"
-        sectionTitle="Projects"
+        sectionTitle={getText(lang, 'projects')}
         id="Projects"
       >
         <CarouselProjects />

@@ -1,19 +1,22 @@
+import { useAppSelector } from '@/app/hooks/useActions'
+import getText from '@/app/locale'
 import AnchorLink from '@/shared/AnchorLink/AnchorLink'
 
-const links = ['About', 'Skills', 'Projects', 'Contacts']
+const links = ['about', 'skills', 'projects', 'contacts'] as const
 
 export default function Navbar() {
+  const lang = useAppSelector((state) => state.lang.value)
   return (
-    <nav>
-      <ul className="flex justify-center gap-20">
+    <nav className="hidden sm:block">
+      <ul className="flex justify-center gap-5 md:gap-20">
         {links.map((value, index) => {
           return (
             <li key={index}>
               <AnchorLink
                 className="hover:underline hover:underline-offset-4"
-                href={value == 'About' ? '#top' : `#${value.toLowerCase()}`}
+                href={value == 'about' ? '#top' : `#${value}`}
               >
-                {value}
+                {getText(lang, value)}
               </AnchorLink>
             </li>
           )

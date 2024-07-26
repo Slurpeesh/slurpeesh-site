@@ -13,16 +13,13 @@ export default function App() {
     const firstSectionHeight =
       document.getElementById('about')?.offsetHeight || 0
     const scrollTop = scrollContainerRef.current?.scrollTop || 0
-    console.log(
-      `ScrollTop: ${scrollTop}, FirstSectionHeight: ${firstSectionHeight}`
-    )
+
     if (scrollTop > firstSectionHeight) {
       setShowBackToTop(true)
     } else {
       setShowBackToTop(false)
     }
   }, 600)
-  console.log(showBackToTop)
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current
@@ -37,7 +34,7 @@ export default function App() {
   return (
     <div
       ref={scrollContainerRef}
-      className="px-20 h-screen overflow-y-auto snap-y snap-mandatory"
+      className="px-5 md:px-20 h-screen overflow-y-auto snap-y snap-mandatory"
     >
       <Header />
       <Main />

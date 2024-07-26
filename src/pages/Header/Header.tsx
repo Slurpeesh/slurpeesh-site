@@ -1,41 +1,49 @@
+import { useAppSelector } from '@/app/hooks/useActions'
+import getText from '@/app/locale'
 import Section from '@/entities/Section/Section'
 import Logo from '@/features/Logo/Logo'
 import Navbar from '@/features/Navbar/Navbar'
+import SelectLang from '@/features/SelectLang/SelectLang'
 import ThemeButton from '@/features/ThemeButton/ThemeButton'
 import AnchorLink from '@/shared/AnchorLink/AnchorLink'
+import BlitzAskAccordion from '@/widgets/BlitzAskAccordion/BlitzAskAccordion'
 
 export default function Header() {
+  const lang = useAppSelector((state) => state.lang.value)
   return (
     <header className="h-screen bg-slate-400 py-5 snap-center snap-always">
       <div className="flex items-center justify-between">
         <Logo />
         <Navbar />
-        <ThemeButton />
+        <div className="flex gap-2">
+          <SelectLang />
+          <ThemeButton />
+        </div>
       </div>
-      <div className="h-full grid grid-flow-col grid-cols-2 gap-10">
+      <div className="h-full md:grid grid-flow-col grid-cols-2 gap-5 md:gap-10">
         <Section
-          className="flex flex-col justify-center gap-8 mb-20"
+          className="flex flex-col h-full justify-evenly md:justify-center gap-4 pb-5 md:gap-8 mb-0 sm:mb-10 lg:mb-20"
           sectionTitle="About"
           id="About"
         >
-          <h1 className="font-extrabold text-5xl">
-            Hi, I'm Slava (aka Slurpeesh)!
+          <h1 className="font-extrabold text-4xl lg:text-5xl">
+            {getText(lang, 'greeting')}
           </h1>
           <p className="font-medium text-2xl">
-            I'm glad you took the time to visit this page. Nice to meet you! I
-            am a Frontend Developer but my work is not limited to websites, I
-            also develop desktop applications and mobile applications.
+            {getText(lang, 'aboutGreeting')}
           </p>
           <div className="flex justify-center">
             <AnchorLink
-              className="text-2xl p-2 rounded-lg bg-white hover:bg-slate-50"
+              className="text-lg md:text-2xl p-2 rounded-lg bg-white hover:bg-slate-50"
               href="#contacts"
             >
-              Contact me!
+              {getText(lang, 'contactMe')}
             </AnchorLink>
           </div>
         </Section>
-        <p>Here is some helpful image or information</p>
+        <div className="hidden md:flex flex-col justify-center gap-4 md:gap-8 p-5 mb-5 sm:mb-10 lg:mb-20">
+          <BlitzAskAccordion />
+        </div>
       </div>
     </header>
   )
