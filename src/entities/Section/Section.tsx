@@ -16,7 +16,7 @@ export default function Section({
   return (
     <section className={'p-5' + ' ' + className} id={id.toLowerCase()}>
       {sectionTitle != 'About' && (
-        <header className="text-center text-3xl font-bold mb-5">
+        <header className="relative z-10 text-center text-3xl font-bold mb-5">
           <h2>{sectionTitle}</h2>
         </header>
       )}

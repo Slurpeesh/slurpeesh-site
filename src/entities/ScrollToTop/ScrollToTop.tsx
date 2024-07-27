@@ -10,7 +10,7 @@ export default function ScrollToTop({ className }: IScrollToTop) {
     <AnchorLink
       href="#about"
       className={
-        'absolute bottom-5 right-10 w-10 h-10 p-1 rounded-full transition-opacity bg-accent hover:bg-accent-hover' +
+        'absolute z-50 bottom-5 right-10 w-10 h-10 p-1 rounded-full transition-opacity bg-accent hover:bg-accent-hover' +
         ' ' +
         className
       }

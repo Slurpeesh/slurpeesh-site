@@ -14,7 +14,7 @@ export default function Navbar() {
             <li key={index}>
               <AnchorLink
                 className="hover:underline hover:underline-offset-4"
-                href={value == 'about' ? '#top' : `#${value}`}
+                href={`#${value}`}
               >
                 {getText(lang, value)}
               </AnchorLink>

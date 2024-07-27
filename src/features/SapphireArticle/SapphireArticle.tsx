@@ -1,6 +1,7 @@
 import { useAppSelector } from '@/app/hooks/useActions'
 import getText from '@/app/locale'
 import SkillCard from '@/entities/SkillCard/SkillCard'
+import bgArticle from '@/features/assets/bgArticle.png'
 import sapphireImg from '@/features/SapphireArticle/assets/sapphire.png'
 import {
   Tooltip,
@@ -31,11 +32,15 @@ const svgs = [
 export default function SapphireArticle() {
   const lang = useAppSelector((state) => state.lang.value)
   return (
-    <article className="flex-grow h-full lg:grid grid-cols-2 gap-3 grid-rows-3 rounded-2xl p-5 sm:bg-muted">
-      <h3 className="flex justify-center items-center text-center font-medium text-2xl sm:text-4xl lg:text-5xl xl:text-6xl">
+    <article className="relative flex-grow h-full overflow-hidden lg:grid grid-cols-2 gap-3 grid-rows-3 rounded-2xl p-5 sm:bg-muted">
+      <div
+        className="hidden sm:block absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-soft-light"
+        style={{ backgroundImage: `url(${bgArticle})` }}
+      ></div>
+      <h3 className="relative z-10 flex justify-center items-center text-center font-medium mb-2 lg:mb-0 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl">
         Sapphire
       </h3>
-      <div className="row-span-2">
+      <div className="relative z-10 row-span-2">
         <div className="m-auto w-full h-full lg:grid">
           <img
             src={sapphireImg}
@@ -45,15 +50,15 @@ export default function SapphireArticle() {
         </div>
       </div>
 
-      <div className="row-span-2">
+      <div className="relative z-10 row-span-2">
         <h4 className="text-center text-lg sm:text-xl lg:text-2xl font-medium">
           {getText(lang, 'description')}
         </h4>
-        <p className="text-sm sm:text-base">
+        <p className="text-sm sm:text-base xl:text-xl">
           {getText(lang, 'descriptionSapphire')}
         </p>
       </div>
-      <div className="flex flex-col">
+      <div className="relative z-10 flex flex-col">
         <h4 className="text-center text-lg sm:text-xl lg:text-2xl font-medium">
           {getText(lang, 'tools')}
         </h4>

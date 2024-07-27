@@ -3,6 +3,8 @@ import getText from '@/app/locale'
 import Section from '@/entities/Section/Section'
 import SkillCard from '@/entities/SkillCard/SkillCard'
 import OtherSvg from '@/features/svg/OtherSvg'
+import bgQuestions from '@/pages/Main/assets/bgQuestions.png'
+import bgSkills from '@/pages/Main/assets/bgSkills.png'
 import {
   Tooltip,
   TooltipContent,
@@ -51,20 +53,28 @@ export default function Main() {
   return (
     <main>
       <Section
-        className="flex md:hidden h-screen flex-col p-0 sm:p-5 bg-purple-300 snap-center snap-always"
+        className="relative flex md:hidden h-screen flex-col p-0 sm:p-5 snap-center snap-always bg-gradient-to-tl from-accent/0 to-background"
         sectionTitle={getText(lang, 'questions')}
         id="Questions"
       >
-        <div className="flex-grow flex justify-center items-center">
+        <div
+          className="absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-color-burn blur-[2px]"
+          style={{ backgroundImage: `url(${bgQuestions})` }}
+        ></div>
+        <div className="relative z-10 flex-grow flex justify-center items-center">
           <BlitzAskAccordion className="flex-grow" />
         </div>
       </Section>
       <Section
-        className="h-screen flex flex-col p-0 sm:p-5 bg-green-300 snap-center snap-always"
+        className="relative h-screen flex flex-col justify-center p-0 sm:p-5 snap-center snap-always bg-gradient-to-tl from-accent/0 to-background"
         sectionTitle={getText(lang, 'skills')}
         id="Skills"
       >
-        <div className="flex flex-wrap justify-between gap-2 sm:gap-5 md:gap-10 md:mt-10">
+        <div
+          className="absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-multiply blur-[2px]"
+          style={{ backgroundImage: `url(${bgSkills})` }}
+        ></div>
+        <div className="relative z-10 flex flex-wrap justify-between gap-2 sm:gap-5 md:gap-10 md:mt-10">
           {skillsSvg.map((list, index) => (
             <TooltipProvider key={index} delayDuration={0}>
               <Tooltip>
@@ -81,12 +91,12 @@ export default function Main() {
             </TooltipProvider>
           ))}
         </div>
-        <p className="hidden lg:block flex-grow font-extrabold text-center place-content-center text-5xl">
+        <p className="relative z-10 hidden lg:block flex-grow font-extrabold text-center place-content-center text-5xl">
           {getText(lang, 'hoverToSeeMore')}
         </p>
       </Section>
       <Section
-        className="h-screen flex flex-col bg-blue-300 snap-center snap-always"
+        className="h-screen px-10 md:px-16 flex flex-col snap-center snap-always"
         sectionTitle={getText(lang, 'projects')}
         id="Projects"
       >

@@ -5,14 +5,19 @@ import Logo from '@/features/Logo/Logo'
 import Navbar from '@/features/Navbar/Navbar'
 import SelectLang from '@/features/SelectLang/SelectLang'
 import ThemeButton from '@/features/ThemeButton/ThemeButton'
+import bgHeader from '@/pages/Header/assets/bgHeader.png'
 import AnchorLink from '@/shared/AnchorLink/AnchorLink'
 import BlitzAskAccordion from '@/widgets/BlitzAskAccordion/BlitzAskAccordion'
 
 export default function Header() {
   const lang = useAppSelector((state) => state.lang.value)
   return (
-    <header className="h-screen bg-slate-400 py-5 snap-center snap-always">
-      <div className="flex items-center justify-between">
+    <header className="relative h-screen p-5 sm:p-10 snap-center snap-always bg-gradient-to-tl from-accent/0 to-background">
+      <div
+        className="absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-soft-light blur-[2px]"
+        style={{ backgroundImage: `url(${bgHeader})` }}
+      ></div>
+      <div className="z-10 relative flex items-center justify-between">
         <Logo />
         <Navbar />
         <div className="flex gap-2">
@@ -20,7 +25,7 @@ export default function Header() {
           <ThemeButton />
         </div>
       </div>
-      <div className="h-full md:grid grid-flow-col grid-cols-2 gap-5 md:gap-10">
+      <div className="z-10 relative h-full md:grid grid-flow-col grid-cols-2 gap-5 md:gap-10">
         <Section
           className="flex flex-col h-full justify-evenly md:justify-center gap-4 pb-5 md:gap-8 mb-0 sm:mb-10 lg:mb-20"
           sectionTitle="About"
