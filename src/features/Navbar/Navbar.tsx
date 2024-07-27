@@ -8,7 +8,7 @@ export default function Navbar() {
   const lang = useAppSelector((state) => state.lang.value)
   return (
     <nav className="hidden sm:block">
-      <ul className="flex justify-center gap-5 md:gap-20">
+      <ul className="flex justify-center gap-5 lg:gap-20">
         {links.map((value, index) => {
           return (
             <li key={index}>

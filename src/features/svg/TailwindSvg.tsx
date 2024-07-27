@@ -1,6 +1,11 @@
 export default function TailwindSvg() {
   return (
-    <svg width="100%" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="100%"
+      viewBox="0 0 512 512"
+      xmlns="http://www.w3.org/2000/svg"
+      className="drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]"
+    >
       <mask
         id="mask0_1_11"
         maskUnits="userSpaceOnUse"

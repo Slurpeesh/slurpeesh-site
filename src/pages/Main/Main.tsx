@@ -22,7 +22,7 @@ import PythonSvg from '../../features/svg/PythonSvg'
 import ReactRouterSvg from '../../features/svg/ReactRouterSvg'
 import ReactSvg from '../../features/svg/ReactSvg'
 import ReduxSvg from '../../features/svg/ReduxSvg'
-import SassSvg from '../../features/svg/SassSvg1'
+import SassSvg from '../../features/svg/SassSvg'
 import TailwindSvg from '../../features/svg/TailwindSvg'
 import TsSvg from '../../features/svg/TsSvg'
 import WebpackSvg from '../../features/svg/WebpackSvg'
@@ -69,11 +69,11 @@ export default function Main() {
             <TooltipProvider key={index} delayDuration={0}>
               <Tooltip>
                 <TooltipTrigger className="cursor-default">
-                  <SkillCard className="w-14 xs:w-20 sm:w-24 xl:w-32 min-h-14 xs:min-h-20 sm:min-h-24 xl:min-h-32 flex">
+                  <SkillCard className="w-14 xs:w-16 sm:w-24 xl:w-32 min-h-14 xs:min-h-16 sm:min-h-24 xl:min-h-32 flex">
                     {list[0]}
                   </SkillCard>
                 </TooltipTrigger>
-                <TooltipContent className="bg-white max-w-64 sm:max-w-80">
+                <TooltipContent className="max-w-64 sm:max-w-80">
                   <h5 className="font-medium text-base">{list[1]}</h5>
                   <p>{getText(lang, list[2])}</p>
                 </TooltipContent>

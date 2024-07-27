@@ -10,28 +10,40 @@ import VkSvg from './svg/VkSvg'
 export default function Footer() {
   const lang = useAppSelector((state) => state.lang.value)
   return (
-    <footer className="flex flex-col bg-slate-400 snap-center snap-always">
+    <footer className="flex flex-col snap-center snap-always">
       <Section
         sectionTitle={getText(lang, 'contacts')}
         id="Contacts"
         className="pb-0"
       >
-        <div className="flex justify-center gap-10 pt-10">
-          <Link href="mailto:goonmate10@gmail.com" className="w-16 h-16">
+        <div className="flex justify-center gap-5 sm:gap-10 pt-10">
+          <Link
+            href="mailto:goonmate10@gmail.com"
+            className="w-16 h-16 hover:scale-125 transition-transform"
+          >
             <Mail className="w-full h-full" />
           </Link>
-          <Link href="https://github.com/Slurpeesh/" className="w-16 h-16">
+          <Link
+            href="https://github.com/Slurpeesh/"
+            className="w-16 h-16 hover:scale-125 transition-transform"
+          >
             <GithubSvg />
           </Link>
-          <Link href="https://t.me/Slurpeesh" className="w-16 h-16">
+          <Link
+            href="https://t.me/Slurpeesh"
+            className="w-16 h-16 hover:scale-125 transition-transform"
+          >
             <TelegramSvg />
           </Link>
-          <Link href="https://vk.com/id180296166" className="w-16 h-16">
+          <Link
+            href="https://vk.com/id180296166"
+            className="w-16 h-16 hover:scale-125 transition-transform"
+          >
             <VkSvg />
           </Link>
         </div>
       </Section>
-      <p className="py-12 text-center font-semibold text-xl">
+      <p className="py-12 text-center font-semibold text-base sm:text-xl">
         &copy; Slava Shvedko (aka Slurpeesh), {new Date().getFullYear()}
       </p>
     </footer>

@@ -5,6 +5,9 @@ const initialTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
   ? 'dark'
   : 'light'
 
+const html = document.querySelector('html')
+html.setAttribute('class', initialTheme)
+
 export interface IThemeState {
   value: string
 }
@@ -18,12 +21,15 @@ export const themeSlice = createSlice({
   initialState,
   reducers: {
     setLight: (state) => {
+      html.setAttribute('class', 'light')
       state.value = 'light'
     },
     setDark: (state) => {
+      html.setAttribute('class', 'dark')
       state.value = 'dark'
     },
     setIce: (state) => {
+      html.setAttribute('class', 'ice')
       state.value = 'ice'
     },
   },

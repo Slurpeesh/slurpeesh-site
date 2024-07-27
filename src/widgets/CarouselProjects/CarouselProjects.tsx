@@ -13,8 +13,8 @@ import WeatherCheckArticle from '@/features/WeatherCheckArticle/WeatherCheckArti
 
 export default function CarouselProjects() {
   return (
-    <Carousel>
-      <CarouselContent>
+    <Carousel className="h-full">
+      <CarouselContent className="h-full">
         <CarouselItem>
           <SkillInsightArticle />
         </CarouselItem>

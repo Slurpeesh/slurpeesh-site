@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-logo: 205 100% 66%;
+    --color-logo-hover: 205 100% 56%;
+    --color-background: 0 0% 93%;
+    --color-foreground: 222.2 47.4% 11.2%;
+    --color-accent: 205 100% 66%;
+    --color-accent-hover: 205 100% 56%;
+    --color-muted: 0 0% 85%;
+    --color-react-router: 0 0% 0%;
+  }
+
+  .dark {
+    --color-logo: 205 100% 66%;
+    --color-logo-hover: 205 100% 56%;
+    --color-background: 205 40% 10%;
+    --color-foreground: 205 5% 90%;
+    --color-accent: 205 100% 40%;
+    --color-accent-hover: 205 100% 35%;
+    --color-muted: 0 0% 25%;
+    --color-react-router: 0 0% 100%;
+  }
+
+  .ice {
+    --color-logo: 205 100% 66%;
+    --color-logo-hover: 205 100% 56%;
+    --color-background: 205 50% 80%;
+    --color-foreground: 205 100% 15%;
+    --color-accent: 205 100% 50%;
+    --color-accent-hover: 205 100% 55%;
+    --color-muted: 205 100% 75%;
+    --color-react-router: 0 0% 0%;
+  }
+}

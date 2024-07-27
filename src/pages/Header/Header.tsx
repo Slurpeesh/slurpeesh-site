@@ -29,12 +29,12 @@ export default function Header() {
           <h1 className="font-extrabold text-4xl lg:text-5xl">
             {getText(lang, 'greeting')}
           </h1>
-          <p className="font-medium text-2xl">
+          <p className="font-medium text-lg sm:text-xl lg:text-2xl">
             {getText(lang, 'aboutGreeting')}
           </p>
           <div className="flex justify-center">
             <AnchorLink
-              className="text-lg md:text-2xl p-2 rounded-lg bg-white hover:bg-slate-50"
+              className="text-lg md:text-2xl p-2 rounded-lg bg-accent hover:bg-accent-hover"
               href="#contacts"
             >
               {getText(lang, 'contactMe')}

@@ -42,7 +42,7 @@ Frontend/build/
 node_modules/
 
 # Build
-./build/
+build/
 
 # TypeScript cache
 *.tsbuildinfo
