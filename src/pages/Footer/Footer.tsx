@@ -10,11 +10,11 @@ import VkSvg from './svg/VkSvg'
 export default function Footer() {
   const lang = useAppSelector((state) => state.lang.value)
   return (
-    <footer className="flex flex-col justify-center snap-end snap-always h-dvh sm:h-auto">
+    <footer className="snap-end snap-always h-dvh sm:h-auto">
       <Section
         sectionTitle={getText(lang, 'contacts')}
         id="Contacts"
-        className="pb-0"
+        className="pb-0 h-full flex flex-col justify-center"
       >
         <div className="flex justify-center gap-5 sm:gap-10 pt-10">
           <Link
