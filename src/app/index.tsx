@@ -1,9 +1,11 @@
 import App from '@/app/App'
 import { store } from '@/app/store'
 import '@/index.css'
-
+import { injectSpeedInsights } from '@vercel/speed-insights'
 import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
+
+injectSpeedInsights()
 
 const root = document.getElementById('root')
 
