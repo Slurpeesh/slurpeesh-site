@@ -23,7 +23,7 @@ export default function WeatherCheckArticle() {
   )
 
   return (
-    <article className="relative flex-grow h-full overflow-hidden lg:grid grid-cols-2 gap-3 grid-rows-3 rounded-2xl p-5 sm:bg-muted">
+    <article className="relative flex-grow h-full overflow-hidden lg:grid grid-cols-2 gap-3 grid-rows-3 rounded-2xl p-0 sm:p-5 sm:bg-muted">
       <div
         className="hidden sm:block absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-soft-light"
         style={{ backgroundImage: `url(${bgArticle})` }}
