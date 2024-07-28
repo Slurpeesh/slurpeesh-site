@@ -46,7 +46,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="relative h-screen p-5 sm:p-10 snap-center snap-always bg-gradient-to-tl from-accent/0 to-background"
+      className="relative h-dvh p-5 sm:p-10 snap-center snap-always bg-gradient-to-tl from-accent/0 to-background"
     >
       <div
         className="absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-soft-light blur-[2px]"
