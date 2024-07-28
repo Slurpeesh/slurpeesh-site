@@ -3,7 +3,7 @@ import Footer from '@/pages/Footer/Footer'
 import Header from '@/pages/Header/Header'
 import Main from '@/pages/Main/Main'
 import { useRef } from 'react'
-import { Snowfall } from 'react-snowfall'
+import Snowfall from 'react-snowfall'
 import { useAppSelector } from './hooks/useActions'
 
 export default function App() {
