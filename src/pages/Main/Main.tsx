@@ -66,7 +66,7 @@ export default function Main() {
   return (
     <main>
       <Section
-        className="relative flex md:hidden h-dvh flex-col p-0 sm:p-5 snap-center snap-always bg-gradient-to-tl from-accent/0 to-background"
+        className="relative flex md:hidden h-dvh flex-col p-0 sm:p-5 snap-start snap-always bg-gradient-to-tl from-accent/0 to-background"
         sectionTitle={getText(lang, 'questions')}
         id="Questions"
       >
@@ -80,7 +80,7 @@ export default function Main() {
         </div>
       </Section>
       <Section
-        className="relative h-dvh flex flex-col justify-center p-0 sm:p-5 snap-center snap-always bg-gradient-to-tl from-accent/0 to-background"
+        className="relative h-dvh flex flex-col justify-center p-0 sm:p-5 snap-start snap-always bg-gradient-to-tl from-accent/0 to-background"
         sectionTitle={getText(lang, 'skills')}
         id="Skills"
       >
@@ -111,7 +111,7 @@ export default function Main() {
         </p>
       </Section>
       <Section
-        className="h-dvh px-10 md:px-16 flex flex-col snap-center snap-always"
+        className="h-dvh px-10 md:px-16 flex flex-col snap-start snap-always"
         sectionTitle={getText(lang, 'projects')}
         id="Projects"
       >
