@@ -1,10 +1,11 @@
-import { useAppSelector } from '@/app/hooks/useActions'
+import { useAppDispatch, useAppSelector } from '@/app/hooks/useActions'
+import skillsSvg from '@/app/lib/skillsSvg'
 import getText from '@/app/locale'
+import { setShow } from '@/app/store/slices/showBackToTopSlice'
 import Section from '@/entities/Section/Section'
 import SkillCard from '@/entities/SkillCard/SkillCard'
-import OtherSvg from '@/features/svg/OtherSvg'
 import bgQuestions from '@/pages/Main/assets/bgQuestions.png'
-import bgSkills from '@/pages/Main/assets/bgSkills.png'
+import bgSkills from '@/pages/Main/assets/bgSkills.jpg'
 import {
   Tooltip,
   TooltipContent,
@@ -13,43 +14,55 @@ import {
 } from '@/shared/Tooltip/Tooltip'
 import BlitzAskAccordion from '@/widgets/BlitzAskAccordion/BlitzAskAccordion'
 import CarouselProjects from '@/widgets/CarouselProjects/CarouselProjects'
-import CssSvg from '../../features/svg/CssSvg'
-import ElectronSvg from '../../features/svg/ElectronSvg'
-import FigmaSvg from '../../features/svg/FigmaSvg'
-import HtmlSvg from '../../features/svg/HtmlSvg'
-import JsSvg from '../../features/svg/JsSvg'
-import KotlinSvg from '../../features/svg/KotlinSvg'
-import NodejsSvg from '../../features/svg/NodejsSvg'
-import PythonSvg from '../../features/svg/PythonSvg'
-import ReactRouterSvg from '../../features/svg/ReactRouterSvg'
-import ReactSvg from '../../features/svg/ReactSvg'
-import ReduxSvg from '../../features/svg/ReduxSvg'
-import SassSvg from '../../features/svg/SassSvg'
-import TailwindSvg from '../../features/svg/TailwindSvg'
-import TsSvg from '../../features/svg/TsSvg'
-import WebpackSvg from '../../features/svg/WebpackSvg'
-
-const skillsSvg = [
-  [<TsSvg />, 'TypeScript', 'tooltipTypeScript'],
-  [<JsSvg />, 'JavaScript', 'tooltipJavaScript'],
-  [<ReactSvg />, 'React', 'tooltipReact'],
-  [<ReactRouterSvg />, 'React Router', 'tooltipReactRouter'],
-  [<WebpackSvg />, 'Webpack', 'tooltipWebpack'],
-  [<ElectronSvg />, 'Electron', 'tooltipElectron'],
-  [<NodejsSvg />, 'Node.JS', 'tooltipNodeJS'],
-  [<TailwindSvg />, 'TailwindCSS', 'tooltipTailwind'],
-  [<SassSvg />, 'Sass', 'tooltipSass'],
-  [<ReduxSvg />, 'Redux', 'tooltipRedux'],
-  [<HtmlSvg />, 'HTML', 'tooltipHTML'],
-  [<CssSvg />, 'CSS', 'tooltipCSS'],
-  [<PythonSvg />, 'Python', 'tooltipPython'],
-  [<KotlinSvg />, 'Kotlin', 'tooltipKotlin'],
-  [<FigmaSvg />, 'Figma', 'tooltipFigma'],
-  [<OtherSvg />, 'Others', 'tooltipOther'],
-] as const
+import { useEffect, useMemo, useRef } from 'react'
 
 export default function Main() {
   const lang = useAppSelector((state) => state.lang.value)
+  const showBackToTop = useAppSelector((state) => state.showBackToTop.value)
+  const dispatch = useAppDispatch()
+  const skillsSection = useRef(null)
+  const questionsSection = useRef(null)
+
+  const skills = useMemo(
+    () => skillsSvg.filter((list) => list.length === 3),
+    []
+  )
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (showBackToTop) return
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            dispatch(setShow())
+          }
+        })
+      },
+      {
+        root: null,
+        threshold: 0.5,
+      }
+    )
+
+    const skills = skillsSection.current
+    const questions = questionsSection.current
+    if (skills) {
+      observer.observe(skills)
+    }
+    if (questions) {
+      observer.observe(questions)
+    }
+
+    return () => {
+      if (skills) {
+        observer.unobserve(skills)
+      }
+      if (questions) {
+        observer.unobserve(questions)
+      }
+    }
+  }, [])
+
   return (
     <main>
       <Section
@@ -58,6 +71,7 @@ export default function Main() {
         id="Questions"
       >
         <div
+          ref={questionsSection}
           className="absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-color-burn blur-[2px]"
           style={{ backgroundImage: `url(${bgQuestions})` }}
         ></div>
@@ -71,11 +85,12 @@ export default function Main() {
         id="Skills"
       >
         <div
+          ref={skillsSection}
           className="absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-multiply blur-[2px]"
           style={{ backgroundImage: `url(${bgSkills})` }}
         ></div>
         <div className="relative z-10 flex flex-wrap justify-between gap-2 sm:gap-5 md:gap-10 md:mt-10">
-          {skillsSvg.map((list, index) => (
+          {skills.map((list, index) => (
             <TooltipProvider key={index} delayDuration={0}>
               <Tooltip>
                 <TooltipTrigger className="cursor-default">

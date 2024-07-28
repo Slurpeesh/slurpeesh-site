@@ -1,7 +1,8 @@
 import { useAppSelector } from '@/app/hooks/useActions'
+import skillsSvg from '@/app/lib/skillsSvg'
 import getText from '@/app/locale'
 import SkillCard from '@/entities/SkillCard/SkillCard'
-import bgArticle from '@/features/assets/bgArticle.png'
+import bgArticle from '@/features/assets/bgArticle.jpg'
 import skillInsightImg from '@/features/SkillInsightArticle/assets/skill-insight.png'
 import {
   Tooltip,
@@ -9,32 +10,29 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/shared/Tooltip/Tooltip'
-import CssSvg from '../svg/CssSvg'
-import ElectronSvg from '../svg/ElectronSvg'
-import HtmlSvg from '../svg/HtmlSvg'
-import JsSvg from '../svg/JsSvg'
-import NodejsSvg from '../svg/NodejsSvg'
-import ReactSvg from '../svg/ReactSvg'
-import ReduxSvg from '../svg/ReduxSvg'
-import TailwindSvg from '../svg/TailwindSvg'
-import TsSvg from '../svg/TsSvg'
-import WebpackSvg from '../svg/WebpackSvg'
+import { useMemo } from 'react'
 
-const svgs = [
-  [<ElectronSvg />, 'Electron'],
-  [<TsSvg />, 'TypeScript'],
-  [<JsSvg />, 'JavaScript'],
-  [<ReactSvg />, 'React'],
-  [<WebpackSvg />, 'Webpack'],
-  [<NodejsSvg />, 'Node.JS'],
-  [<ReduxSvg />, 'Redux'],
-  [<TailwindSvg />, 'TailwindCSS'],
-  [<HtmlSvg />, 'HTML'],
-  [<CssSvg />, 'CSS'],
+const skillNames = [
+  'Electron',
+  'TypeScript',
+  'JavaScript',
+  'React',
+  'Webpack',
+  'Node.JS',
+  'Redux',
+  'TailwindCSS',
+  'HTML',
+  'CSS',
 ]
 
 export default function SkillInsightArticle() {
   const lang = useAppSelector((state) => state.lang.value)
+
+  const svgs = useMemo(
+    () => skillsSvg.filter((list) => skillNames.includes(list[1])),
+    []
+  )
+
   return (
     <article className="relative flex-grow h-full lg:grid grid-cols-2 gap-3 grid-rows-3 overflow-hidden rounded-2xl p-0 sm:p-5 sm:bg-muted">
       <div

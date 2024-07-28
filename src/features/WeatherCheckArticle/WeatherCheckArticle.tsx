@@ -1,7 +1,8 @@
 import { useAppSelector } from '@/app/hooks/useActions'
+import skillsSvg from '@/app/lib/skillsSvg'
 import getText from '@/app/locale'
 import SkillCard from '@/entities/SkillCard/SkillCard'
-import bgArticle from '@/features/assets/bgArticle.png'
+import bgArticle from '@/features/assets/bgArticle.jpg'
 import weatherCheckImg from '@/features/WeatherCheckArticle/assets/weatherCheck.png'
 import {
   Tooltip,
@@ -9,18 +10,18 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/shared/Tooltip/Tooltip'
-import AndroidStudioSvg from '../svg/AndroidStudioSvg'
-import KotlinSvg from '../svg/KotlinSvg'
-import XmlSvg from '../svg/XmlSvg'
+import { useMemo } from 'react'
 
-const svgs = [
-  [<KotlinSvg />, 'Kotlin'],
-  [<AndroidStudioSvg />, 'Android Studio'],
-  [<XmlSvg />, 'XML'],
-]
+const skillNames = ['Kotlin', 'Android Studio', 'XML']
 
 export default function WeatherCheckArticle() {
   const lang = useAppSelector((state) => state.lang.value)
+
+  const svgs = useMemo(
+    () => skillsSvg.filter((list) => skillNames.includes(list[1])),
+    []
+  )
+
   return (
     <article className="relative flex-grow h-full overflow-hidden lg:grid grid-cols-2 gap-3 grid-rows-3 rounded-2xl p-5 sm:bg-muted">
       <div

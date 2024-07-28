@@ -1,36 +1,36 @@
 import { useAppSelector } from '@/app/hooks/useActions'
+import skillsSvg from '@/app/lib/skillsSvg'
 import getText from '@/app/locale'
 import SkillCard from '@/entities/SkillCard/SkillCard'
-import bgArticle from '@/features/assets/bgArticle.png'
-import sapphireImg from '@/features/SapphireArticle/assets/sapphire.png'
+import bgArticle from '@/features/assets/bgArticle.jpg'
+import sapphireImg from '@/features/SapphireArticle/assets/sapphire.jpg'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from '@/shared/Tooltip/Tooltip'
-import CssSvg from '../svg/CssSvg'
-import HtmlSvg from '../svg/HtmlSvg'
-import JsSvg from '../svg/JsSvg'
-import ReactRouterSvg from '../svg/ReactRouterSvg'
-import ReactSvg from '../svg/ReactSvg'
-import SassSvg from '../svg/SassSvg'
-import TsSvg from '../svg/TsSvg'
-import WebpackSvg from '../svg/WebpackSvg'
+import { useMemo } from 'react'
 
-const svgs = [
-  [<TsSvg />, 'TypeScript'],
-  [<JsSvg />, 'JavaScript'],
-  [<ReactSvg />, 'React'],
-  [<ReactRouterSvg />, 'React Router'],
-  [<WebpackSvg />, 'Webpack'],
-  [<SassSvg />, 'Sass'],
-  [<HtmlSvg />, 'HTML'],
-  [<CssSvg />, 'CSS'],
+const skillNames = [
+  'TypeScript',
+  'JavaScript',
+  'React',
+  'React Router',
+  'Webpack',
+  'Sass',
+  'HTML',
+  'CSS',
 ]
 
 export default function SapphireArticle() {
   const lang = useAppSelector((state) => state.lang.value)
+
+  const svgs = useMemo(
+    () => skillsSvg.filter((list) => skillNames.includes(list[1])),
+    []
+  )
+
   return (
     <article className="relative flex-grow h-full overflow-hidden lg:grid grid-cols-2 gap-3 grid-rows-3 rounded-2xl p-5 sm:bg-muted">
       <div

@@ -1,18 +1,53 @@
-import { useAppSelector } from '@/app/hooks/useActions'
+import { useAppDispatch, useAppSelector } from '@/app/hooks/useActions'
 import getText from '@/app/locale'
+import { setHide } from '@/app/store/slices/showBackToTopSlice'
 import Section from '@/entities/Section/Section'
 import Logo from '@/features/Logo/Logo'
 import Navbar from '@/features/Navbar/Navbar'
 import SelectLang from '@/features/SelectLang/SelectLang'
 import ThemeButton from '@/features/ThemeButton/ThemeButton'
-import bgHeader from '@/pages/Header/assets/bgHeader.png'
+import bgHeader from '@/pages/Header/assets/bgHeader.jpg'
 import AnchorLink from '@/shared/AnchorLink/AnchorLink'
 import BlitzAskAccordion from '@/widgets/BlitzAskAccordion/BlitzAskAccordion'
+import { useEffect, useRef } from 'react'
 
 export default function Header() {
   const lang = useAppSelector((state) => state.lang.value)
+  const dispatch = useAppDispatch()
+  const headerRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            dispatch(setHide())
+          }
+        })
+      },
+      {
+        root: null,
+        threshold: 0.5,
+      }
+    )
+
+    const header = headerRef.current
+    if (header) {
+      observer.observe(header)
+    }
+
+    return () => {
+      if (header) {
+        observer.unobserve(header)
+      }
+    }
+  }, [])
+
   return (
-    <header className="relative h-screen p-5 sm:p-10 snap-center snap-always bg-gradient-to-tl from-accent/0 to-background">
+    <header
+      ref={headerRef}
+      className="relative h-screen p-5 sm:p-10 snap-center snap-always bg-gradient-to-tl from-accent/0 to-background"
+    >
       <div
         className="absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-soft-light blur-[2px]"
         style={{ backgroundImage: `url(${bgHeader})` }}
@@ -20,7 +55,7 @@ export default function Header() {
       <div className="z-10 relative flex items-center justify-between">
         <Logo />
         <Navbar />
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2">
           <SelectLang />
           <ThemeButton />
         </div>

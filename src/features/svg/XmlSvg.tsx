@@ -2,21 +2,15 @@ export default function XmlSvg() {
   return (
     <svg width="100%" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
         d="M72.592 0C50.168 0 32 18.176 32 40.592V471.32C32 493.744 50.168 511.912 72.592 511.912H438.784C461.192 511.912 479.376 493.744 479.376 471.32V162.472L328.16 0H72.592Z"
         fill="#FC7B24"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
         d="M479.512 163.008V171.008H377.12C377.12 171.008 326.624 160.928 328.088 117.352C328.088 117.352 329.752 163.008 376.12 163.008H479.512Z"
         fill="#FB5C1B"
       />
       <path
         opacity="0.5"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
         d="M328.288 0.192017V116.68C328.288 129.928 337.12 163.008 377.12 163.008H479.512L328.288 0.192017Z"
         fill="white"
       />

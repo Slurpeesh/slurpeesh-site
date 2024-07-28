@@ -1,7 +1,8 @@
 import { useAppSelector } from '@/app/hooks/useActions'
+import skillsSvg from '@/app/lib/skillsSvg'
 import getText from '@/app/locale'
 import SkillCard from '@/entities/SkillCard/SkillCard'
-import bgArticle from '@/features/assets/bgArticle.png'
+import bgArticle from '@/features/assets/bgArticle.jpg'
 import dmuuImg from '@/features/DMUUArticle/assets/DMUU.png'
 import {
   Tooltip,
@@ -9,18 +10,18 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/shared/Tooltip/Tooltip'
-import CssSvg from '../svg/CssSvg'
-import HtmlSvg from '../svg/HtmlSvg'
-import JsSvg from '../svg/JsSvg'
+import { useMemo } from 'react'
 
-const svgs = [
-  [<JsSvg />, 'JavaScript'],
-  [<HtmlSvg />, 'HTML'],
-  [<CssSvg />, 'CSS'],
-]
+const skillNames = ['JavaScript', 'HTML', 'CSS']
 
 export default function DMUUArticle() {
   const lang = useAppSelector((state) => state.lang.value)
+
+  const svgs = useMemo(
+    () => skillsSvg.filter((list) => skillNames.includes(list[1])),
+    []
+  )
+
   return (
     <article className="relative flex-grow h-full overflow-hidden lg:grid grid-cols-2 gap-3 grid-rows-3 rounded-2xl p-5 sm:bg-muted">
       <div

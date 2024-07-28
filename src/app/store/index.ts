@@ -1,4 +1,5 @@
 import langReducer from '@/app/store/slices/langSlice'
+import showBackToTopReducer from '@/app/store/slices/showBackToTopSlice'
 import themeReducer from '@/app/store/slices/themeSlice'
 import { configureStore } from '@reduxjs/toolkit'
 
@@ -6,6 +7,7 @@ export const store = configureStore({
   reducer: {
     theme: themeReducer,
     lang: langReducer,
+    showBackToTop: showBackToTopReducer,
   },
 })
 

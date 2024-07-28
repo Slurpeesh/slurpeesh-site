@@ -20,7 +20,7 @@ export default function ThemeButton() {
   }
   return (
     <button
-      className="w-10 h-10 p-1 rounded-full transition-colors hover:bg-muted"
+      className="w-12 h-12 p-2 rounded-full transition-colors hover:bg-muted"
       onClick={() => changeThemeHandler()}
     >
       {theme == 'light' && <Sun className="h-full w-full" />}

@@ -2,8 +2,6 @@ export default function SassSvg() {
   return (
     <svg width="100%" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
         d="M256.001 -0.00128439C397.387 -0.00128439 512.001 114.615 512.001 256C512.001 397.385 397.387 512 256.001 512C114.616 512 0 397.385 0 256C0 114.615 114.616 -0.00128439 256.001 -0.00128439Z"
         fill="#CC499C"
       />

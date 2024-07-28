@@ -1,7 +1,7 @@
 export default function PythonSvg() {
   return (
     <svg width="100%" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_1_64)">
+      <g clipPath="url(#clip0_1_64)">
         <path
           d="M252.415 0.00421059C231.348 0.101763 211.229 1.89231 193.527 5.01396C141.378 14.1953 131.91 33.4125 131.91 68.8524V115.658H255.144V131.26H131.91H85.6608C49.8455 131.26 18.4847 152.713 8.67539 193.524C-2.6395 240.302 -3.14137 269.493 8.67539 318.338C17.4353 354.696 38.3552 380.602 74.1705 380.602H116.541V324.493C116.541 283.957 151.735 248.201 193.527 248.201H316.617C350.881 248.201 378.234 220.086 378.234 185.794V68.8524C378.234 35.5701 350.06 10.5686 316.617 5.01396C295.447 1.5021 273.482 -0.0933429 252.415 0.00421059ZM185.771 37.6489C198.5 37.6489 208.895 48.1775 208.895 61.1231C208.895 74.0229 198.5 84.4542 185.771 84.4542C172.996 84.4542 162.646 74.0229 162.646 61.1231C162.646 48.1775 172.996 37.6489 185.771 37.6489Z"
           fill="url(#paint0_linear_1_64)"
@@ -20,8 +20,8 @@ export default function PythonSvg() {
           y2="242.279"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#5A9FD4" />
-          <stop offset="1" stop-color="#306998" />
+          <stop stopColor="#5A9FD4" />
+          <stop offset="1" stopColor="#306998" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_1_64"
@@ -31,12 +31,9 @@ export default function PythonSvg() {
           y2="302.396"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFD43B" />
-          <stop offset="1" stop-color="#FFE873" />
+          <stop stopColor="#FFD43B" />
+          <stop offset="1" stopColor="#FFE873" />
         </linearGradient>
-        <clipPath id="clip0_1_64">
-          <rect width="512" height="512" fill="white" />
-        </clipPath>
       </defs>
     </svg>
   )
