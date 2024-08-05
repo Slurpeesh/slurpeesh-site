@@ -5,6 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/entities/Carousel/Carousel'
+import AnonChatArticle from '@/features/AnonChatArticle/AnonChatArticle'
 import DMUUArticle from '@/features/DMUUArticle/DMUUArticle'
 import NashEquilibriumArticle from '@/features/NashEquilibriumArticle/NashEquilibriumArticle'
 import SapphireArticle from '@/features/SapphireArticle/SapphireArticle'
@@ -15,6 +16,9 @@ export default function CarouselProjects() {
   return (
     <Carousel className="h-full">
       <CarouselContent className="h-full">
+        <CarouselItem>
+          <AnonChatArticle />
+        </CarouselItem>
         <CarouselItem>
           <SkillInsightArticle />
         </CarouselItem>

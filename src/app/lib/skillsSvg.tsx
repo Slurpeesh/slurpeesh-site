@@ -12,6 +12,7 @@ import ReactRouterSvg from '@/features/svg/ReactRouterSvg'
 import ReactSvg from '@/features/svg/ReactSvg'
 import ReduxSvg from '@/features/svg/ReduxSvg'
 import SassSvg from '@/features/svg/SassSvg'
+import SocketIOSvg from '@/features/svg/SocketIOSvg'
 import TailwindSvg from '@/features/svg/TailwindSvg'
 import TsSvg from '@/features/svg/TsSvg'
 import WebpackSvg from '@/features/svg/WebpackSvg'
@@ -30,6 +31,7 @@ const skillsSvg = [
   [<ReduxSvg />, 'Redux', 'tooltipRedux'],
   [<HtmlSvg />, 'HTML', 'tooltipHTML'],
   [<CssSvg />, 'CSS', 'tooltipCSS'],
+  [<SocketIOSvg />, 'Socket.IO', 'tooltipSocketIO'],
   [<PythonSvg />, 'Python', 'tooltipPython'],
   [<KotlinSvg />, 'Kotlin', 'tooltipKotlin'],
   [<FigmaSvg />, 'Figma', 'tooltipFigma'],
