@@ -7,7 +7,7 @@ const links = ['about', 'skills', 'projects', 'contacts'] as const
 export default function Navbar() {
   const lang = useAppSelector((state) => state.lang.value)
   return (
-    <nav className="hidden sm:block">
+    <nav className="hidden md:block">
       <ul className="flex justify-center gap-5 lg:gap-20">
         {links.map((value, index) => {
           return (
