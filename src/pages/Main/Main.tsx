@@ -14,6 +14,7 @@ import {
 } from '@/shared/Tooltip/Tooltip'
 import BlitzAskAccordion from '@/widgets/BlitzAskAccordion/BlitzAskAccordion'
 import CarouselProjects from '@/widgets/CarouselProjects/CarouselProjects'
+import { motion } from 'framer-motion'
 import { useEffect, useMemo, useRef } from 'react'
 
 export default function Main() {
@@ -22,6 +23,27 @@ export default function Main() {
   const dispatch = useAppDispatch()
   const skillsSection = useRef(null)
   const questionsSection = useRef(null)
+
+  const list = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.1,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: 'afterChildren',
+      },
+    },
+  }
+
+  const item = {
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 50 },
+  }
 
   const skills = useMemo(
     () => skillsSvg.filter((list) => list.length === 3),
@@ -89,12 +111,21 @@ export default function Main() {
           className="absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-multiply blur-[2px]"
           style={{ backgroundImage: `url(${bgSkills})` }}
         ></div>
-        <div className="relative z-10 flex flex-wrap justify-between gap-2 sm:gap-5 md:gap-10 md:mt-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={list}
+          className="relative z-10 flex flex-wrap justify-between gap-2 sm:gap-5 md:gap-10 md:mt-10"
+        >
           {skills.map((list, index) => (
             <TooltipProvider key={index} delayDuration={0}>
               <Tooltip>
                 <TooltipTrigger className="cursor-default">
-                  <SkillCard className="w-14 xs:w-16 sm:w-24 xl:w-32 min-h-14 xs:min-h-16 sm:min-h-24 xl:min-h-32 flex">
+                  <SkillCard
+                    variants={item}
+                    className="w-14 xs:w-16 sm:w-24 xl:w-32 min-h-14 xs:min-h-16 sm:min-h-24 xl:min-h-32 flex"
+                  >
                     {list[0]}
                   </SkillCard>
                 </TooltipTrigger>
@@ -105,10 +136,15 @@ export default function Main() {
               </Tooltip>
             </TooltipProvider>
           ))}
-        </div>
-        <p className="relative z-10 hidden lg:block flex-grow font-extrabold text-center place-content-center text-5xl">
+        </motion.div>
+        <motion.p
+          whileInView={{ y: [-50, 0], opacity: [0, 1] }}
+          transition={{ duration: 2 }}
+          viewport={{ once: true }}
+          className="relative z-10 hidden lg:block flex-grow font-extrabold text-center place-content-center text-5xl"
+        >
           {getText(lang, 'hoverToSeeMore')}
-        </p>
+        </motion.p>
       </Section>
       <Section
         className="h-dvh px-10 md:px-16 flex flex-col snap-start snap-always"

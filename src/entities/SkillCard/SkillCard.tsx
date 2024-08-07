@@ -1,12 +1,20 @@
-import { ReactNode } from 'react'
+import { motion } from 'framer-motion'
+import { forwardRef, LegacyRef, ReactNode } from 'react'
 
 interface ISkillCard {
   children: ReactNode
   className?: string
 }
 
-export default function SkillCard({ className, children }: ISkillCard) {
+const SkillCard = forwardRef(function SkillCard(
+  { className, children }: ISkillCard,
+  ref: LegacyRef<HTMLDivElement>
+) {
   return (
-    <div className={'p-2 lg:p-4 rounded-xl' + ' ' + className}>{children}</div>
+    <div ref={ref} className={'p-2 lg:p-4 rounded-xl' + ' ' + className}>
+      {children}
+    </div>
   )
-}
+})
+
+export default motion(SkillCard)

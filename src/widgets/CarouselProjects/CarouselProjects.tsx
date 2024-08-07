@@ -17,22 +17,46 @@ export default function CarouselProjects() {
     <Carousel className="h-full">
       <CarouselContent className="h-full">
         <CarouselItem>
-          <AnonChatArticle />
+          <AnonChatArticle
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          />
         </CarouselItem>
         <CarouselItem>
-          <SkillInsightArticle />
+          <SkillInsightArticle
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          />
         </CarouselItem>
         <CarouselItem>
-          <SapphireArticle />
+          <SapphireArticle
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          />
         </CarouselItem>
         <CarouselItem>
-          <DMUUArticle />
+          <DMUUArticle
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          />
         </CarouselItem>
         <CarouselItem>
-          <NashEquilibriumArticle />
+          <NashEquilibriumArticle
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          />
         </CarouselItem>
         <CarouselItem>
-          <WeatherCheckArticle />
+          <WeatherCheckArticle
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          />
         </CarouselItem>
       </CarouselContent>
       <CarouselPrevious />

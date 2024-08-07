@@ -9,12 +9,26 @@ import ThemeButton from '@/features/ThemeButton/ThemeButton'
 import bgHeader from '@/pages/Header/assets/bgHeader.jpg'
 import AnchorLink from '@/shared/AnchorLink/AnchorLink'
 import BlitzAskAccordion from '@/widgets/BlitzAskAccordion/BlitzAskAccordion'
+import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 
 export default function Header() {
   const lang = useAppSelector((state) => state.lang.value)
   const dispatch = useAppDispatch()
   const headerRef = useRef(null)
+
+  const fadeInVariants = {
+    fromTop: {
+      y: [-50, 0],
+      opacity: [0, 1],
+      transition: { type: 'tween', duration: 0.6 },
+    },
+    fromBottom: {
+      y: [50, 0],
+      opacity: [0, 1],
+      transition: { type: 'tween', duration: 0.6 },
+    },
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -52,15 +66,23 @@ export default function Header() {
         className="absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-soft-light blur-[2px]"
         style={{ backgroundImage: `url(${bgHeader})` }}
       ></div>
-      <div className="z-10 relative flex items-center justify-between">
+      <motion.div
+        variants={fadeInVariants}
+        animate={'fromTop'}
+        className="z-10 relative flex items-center justify-between"
+      >
         <Logo />
         <Navbar />
         <div className="flex items-center gap-2">
           <SelectLang />
           <ThemeButton />
         </div>
-      </div>
-      <div className="z-10 relative h-full md:grid grid-flow-col grid-cols-2 gap-5 md:gap-10">
+      </motion.div>
+      <motion.div
+        variants={fadeInVariants}
+        animate={'fromBottom'}
+        className="z-10 relative h-full md:grid grid-flow-col grid-cols-2 gap-5 md:gap-10"
+      >
         <Section
           className="flex flex-col h-full justify-evenly md:justify-center gap-4 pb-5 md:gap-8 mb-0 sm:mb-10 lg:mb-20"
           sectionTitle="About"
@@ -84,7 +106,7 @@ export default function Header() {
         <div className="hidden md:flex flex-col justify-center gap-4 md:gap-8 p-5 mb-5 sm:mb-10 lg:mb-20">
           <BlitzAskAccordion />
         </div>
-      </div>
+      </motion.div>
     </header>
   )
 }

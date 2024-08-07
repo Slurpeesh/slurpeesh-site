@@ -10,11 +10,15 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/shared/Tooltip/Tooltip'
-import { useMemo } from 'react'
+import { motion } from 'framer-motion'
+import { forwardRef, LegacyRef, useMemo } from 'react'
 
 const skillNames = ['JavaScript', 'HTML', 'CSS']
 
-export default function DMUUArticle() {
+const DMUUArticle = forwardRef(function DMUUArticle(
+  props,
+  ref: LegacyRef<HTMLElement>
+) {
   const lang = useAppSelector((state) => state.lang.value)
 
   const svgs = useMemo(
@@ -23,7 +27,10 @@ export default function DMUUArticle() {
   )
 
   return (
-    <article className="relative flex-grow h-full overflow-hidden lg:grid grid-cols-2 gap-3 grid-rows-3 rounded-2xl p-0 sm:p-5 sm:bg-muted">
+    <article
+      ref={ref}
+      className="relative flex-grow h-full overflow-hidden lg:grid grid-cols-2 gap-3 grid-rows-3 rounded-2xl p-0 sm:p-5 sm:bg-muted"
+    >
       <div
         className="hidden sm:block absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-soft-light"
         style={{ backgroundImage: `url(${bgArticle})` }}
@@ -70,4 +77,6 @@ export default function DMUUArticle() {
       </div>
     </article>
   )
-}
+})
+
+export default motion(DMUUArticle)
