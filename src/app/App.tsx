@@ -14,7 +14,7 @@ export default function App() {
   return (
     <div
       ref={scrollContainerRef}
-      className="h-screen overflow-y-auto snap-y snap-mandatory bg-background text-foreground"
+      className="h-screen overflow-y-scroll overflow-x-hidden snap-y snap-mandatory bg-background text-foreground"
     >
       <Header />
       <Main />
