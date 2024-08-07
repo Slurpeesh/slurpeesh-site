@@ -13,9 +13,10 @@ import {
   TooltipTrigger,
 } from '@/shared/Tooltip/Tooltip'
 import BlitzAskAccordion from '@/widgets/BlitzAskAccordion/BlitzAskAccordion'
-import CarouselProjects from '@/widgets/CarouselProjects/CarouselProjects'
+import CarouselLoader from '@/widgets/CarouselLoader/CarouselLoader'
+import LazyCarouselProjects from '@/widgets/CarouselProjects/CarouselProjects.lazy'
 import { motion } from 'framer-motion'
-import { useEffect, useMemo, useRef } from 'react'
+import { Suspense, useEffect, useMemo, useRef } from 'react'
 
 export default function Main() {
   const lang = useAppSelector((state) => state.lang.value)
@@ -151,7 +152,9 @@ export default function Main() {
         sectionTitle={getText(lang, 'projects')}
         id="Projects"
       >
-        <CarouselProjects />
+        <Suspense fallback={<CarouselLoader />}>
+          <LazyCarouselProjects />
+        </Suspense>
       </Section>
     </main>
   )
