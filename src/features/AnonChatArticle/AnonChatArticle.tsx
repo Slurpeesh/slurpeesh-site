@@ -11,6 +11,7 @@ import {
   TooltipTrigger,
 } from '@/shared/Tooltip/Tooltip'
 import { motion } from 'framer-motion'
+import { ExternalLink } from 'lucide-react'
 import { forwardRef, LegacyRef, useMemo } from 'react'
 
 const skillNames = [
@@ -46,9 +47,16 @@ const DMUUArticle = forwardRef(function DMUUArticle(
         className="hidden sm:block absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-soft-light"
         style={{ backgroundImage: `url(${bgArticle})` }}
       ></div>
-      <h3 className="relative z-10 flex justify-center items-center text-center font-medium mb-2 lg:mb-0 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl">
-        AnonChat
-      </h3>
+      <div className="relative z-10 flex justify-center items-center text-center font-medium mb-2 lg:mb-0 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl">
+        <a
+          href="https://anon-chat-slurpeesh.vercel.app/"
+          target="_blank"
+          className="flex underline underline-offset-8 decoration-2 justify-center items-center gap-2 hover:text-accent-foreground transition-colors"
+        >
+          <h3>AnonChat</h3>
+          <ExternalLink />
+        </a>
+      </div>
       <div className="relative z-10 row-span-2">
         <div className="m-auto w-full h-full lg:grid">
           <img

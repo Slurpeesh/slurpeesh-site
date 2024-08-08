@@ -11,6 +11,8 @@ export default {
       foreground: 'hsl(var(--color-foreground) / <alpha-value>)',
       accent: 'hsl(var(--color-accent) / <alpha-value>)',
       'accent-hover': 'hsl(var(--color-accent-hover) / <alpha-value>)',
+      'accent-foreground':
+        'hsl(var(--color-accent-foreground) / <alpha-value>)',
       muted: 'hsl(var(--color-muted) / <alpha-value>)',
       'react-router': 'hsl(var(--color-react-router) / <alpha-value>)',
     },
