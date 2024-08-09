@@ -1,9 +1,11 @@
 import { useAppSelector } from '@/app/hooks/useActions'
 import skillsSvg from '@/app/lib/skillsSvg'
 import getText from '@/app/locale'
+import Gallery from '@/entities/Gallery/Gallery'
 import SkillCard from '@/entities/SkillCard/SkillCard'
 import bgArticle from '@/features/assets/bgArticle.jpg'
-import weatherCheckImg from '@/features/WeatherCheckArticle/assets/weatherCheck.png'
+import img1 from '@/features/WeatherCheckArticle/assets/1.png'
+import img2 from '@/features/WeatherCheckArticle/assets/2.png'
 import {
   Tooltip,
   TooltipContent,
@@ -46,14 +48,8 @@ const WeatherCheckArticle = forwardRef(function WeatherCheckArticle(
           <ExternalLink />
         </a>
       </div>
-      <div className="relative z-10 row-span-2">
-        <div className="m-auto w-full h-full lg:grid">
-          <img
-            src={weatherCheckImg}
-            alt="Window of Skill Insight application"
-            className="max-h-40 sm:max-h-56 md:max-h-[40vh] lg:max-h-[52vh] max-w-full m-auto rounded-2xl"
-          />
-        </div>
+      <div className="relative z-10 row-span-2 h-[100px] lg:h-full w-full">
+        <Gallery imageSrcs={[img1, img2]} portalId={'5'} />
       </div>
 
       <div className="relative z-10 row-span-2">

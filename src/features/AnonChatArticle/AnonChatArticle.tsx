@@ -1,8 +1,14 @@
 import { useAppSelector } from '@/app/hooks/useActions'
 import skillsSvg from '@/app/lib/skillsSvg'
 import getText from '@/app/locale'
+import Gallery from '@/entities/Gallery/Gallery'
 import SkillCard from '@/entities/SkillCard/SkillCard'
-import anonChatImg from '@/features/AnonChatArticle/assets/AnonChat.png'
+import img1 from '@/features/AnonChatArticle/assets/1.png'
+import img2 from '@/features/AnonChatArticle/assets/2.png'
+import img3 from '@/features/AnonChatArticle/assets/3.png'
+import img4 from '@/features/AnonChatArticle/assets/4.png'
+import img5 from '@/features/AnonChatArticle/assets/5.png'
+import img6 from '@/features/AnonChatArticle/assets/6.png'
 import bgArticle from '@/features/assets/bgArticle.jpg'
 import {
   Tooltip,
@@ -57,16 +63,12 @@ const DMUUArticle = forwardRef(function DMUUArticle(
           <ExternalLink />
         </a>
       </div>
-      <div className="relative z-10 row-span-2">
-        <div className="m-auto w-full h-full lg:grid">
-          <img
-            src={anonChatImg}
-            alt="Window of Skill Insight application"
-            className="max-h-40 sm:max-h-56 md:max-h-[40vh] lg:max-h-[52vh] max-w-full m-auto rounded-2xl"
-          />
-        </div>
+      <div className="relative z-10 row-span-2 h-[100px] lg:h-full w-full">
+        <Gallery
+          imageSrcs={[img1, img2, img3, img4, img5, img6]}
+          portalId={'0'}
+        />
       </div>
-
       <div className="relative z-10 row-span-2">
         <h4 className="text-center text-lg sm:text-xl lg:text-2xl font-medium">
           {getText(lang, 'description')}

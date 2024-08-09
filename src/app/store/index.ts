@@ -1,4 +1,5 @@
 import langReducer from '@/app/store/slices/langSlice'
+import modalReducer from '@/app/store/slices/modalSlice'
 import showBackToTopReducer from '@/app/store/slices/showBackToTopSlice'
 import themeReducer from '@/app/store/slices/themeSlice'
 import { configureStore } from '@reduxjs/toolkit'
@@ -8,6 +9,7 @@ export const store = configureStore({
     theme: themeReducer,
     lang: langReducer,
     showBackToTop: showBackToTopReducer,
+    modal: modalReducer,
   },
 })
 

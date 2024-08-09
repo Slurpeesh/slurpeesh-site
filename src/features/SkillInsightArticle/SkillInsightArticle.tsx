@@ -1,9 +1,15 @@
 import { useAppSelector } from '@/app/hooks/useActions'
 import skillsSvg from '@/app/lib/skillsSvg'
 import getText from '@/app/locale'
+import Gallery from '@/entities/Gallery/Gallery'
 import SkillCard from '@/entities/SkillCard/SkillCard'
 import bgArticle from '@/features/assets/bgArticle.jpg'
-import skillInsightImg from '@/features/SkillInsightArticle/assets/skill-insight.png'
+import img1 from '@/features/SkillInsightArticle/assets/1.png'
+import img2 from '@/features/SkillInsightArticle/assets/2.png'
+import img3 from '@/features/SkillInsightArticle/assets/3.png'
+import img4 from '@/features/SkillInsightArticle/assets/4.png'
+import img5 from '@/features/SkillInsightArticle/assets/5.png'
+import img6 from '@/features/SkillInsightArticle/assets/6.png'
 import {
   Tooltip,
   TooltipContent,
@@ -57,14 +63,11 @@ const SkillInsightArticle = forwardRef(function SkillInsightArticle(
           <ExternalLink />
         </a>
       </div>
-      <div className="relative z-10 row-span-2">
-        <div className="m-auto w-full h-full lg:grid">
-          <img
-            src={skillInsightImg}
-            alt="Window of Skill Insight application"
-            className="max-h-40 sm:max-h-48 md:max-h-[28vh] lg:max-h-[52vh] max-w-full m-auto rounded-2xl"
-          />
-        </div>
+      <div className="relative z-10 row-span-2 h-[100px] lg:h-full w-full">
+        <Gallery
+          imageSrcs={[img1, img2, img3, img4, img5, img6]}
+          portalId={'4'}
+        />
       </div>
 
       <div className="relative z-10 row-span-2">

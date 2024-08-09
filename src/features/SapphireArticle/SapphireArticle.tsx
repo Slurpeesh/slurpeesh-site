@@ -1,9 +1,13 @@
 import { useAppSelector } from '@/app/hooks/useActions'
 import skillsSvg from '@/app/lib/skillsSvg'
 import getText from '@/app/locale'
+import Gallery from '@/entities/Gallery/Gallery'
 import SkillCard from '@/entities/SkillCard/SkillCard'
 import bgArticle from '@/features/assets/bgArticle.jpg'
-import sapphireImg from '@/features/SapphireArticle/assets/sapphire.jpg'
+import img1 from '@/features/SapphireArticle/assets/1.jpg'
+import img2 from '@/features/SapphireArticle/assets/2.png'
+import img3 from '@/features/SapphireArticle/assets/3.png'
+import img4 from '@/features/SapphireArticle/assets/4.png'
 import {
   Tooltip,
   TooltipContent,
@@ -55,14 +59,8 @@ const SapphireArticle = forwardRef(function SapphireArticle(
           <ExternalLink />
         </a>
       </div>
-      <div className="relative z-10 row-span-2">
-        <div className="m-auto w-full h-full lg:grid">
-          <img
-            src={sapphireImg}
-            alt="Window of Skill Insight application"
-            className="max-h-40 sm:max-h-56 md:max-h-[40vh] lg:max-h-[52vh] max-w-full m-auto rounded-2xl"
-          />
-        </div>
+      <div className="relative z-10 row-span-2 h-[100px] lg:h-full w-full">
+        <Gallery imageSrcs={[img1, img2, img3, img4]} portalId={'3'} />
       </div>
 
       <div className="relative z-10 row-span-2">

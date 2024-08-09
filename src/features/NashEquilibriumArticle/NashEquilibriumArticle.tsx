@@ -1,9 +1,13 @@
 import { useAppSelector } from '@/app/hooks/useActions'
 import skillsSvg from '@/app/lib/skillsSvg'
 import getText from '@/app/locale'
+import Gallery from '@/entities/Gallery/Gallery'
 import SkillCard from '@/entities/SkillCard/SkillCard'
 import bgArticle from '@/features/assets/bgArticle.jpg'
-import nashEquilibriumImg from '@/features/NashEquilibriumArticle/assets/nash.png'
+import img1 from '@/features/NashEquilibriumArticle/assets/1.png'
+import img2 from '@/features/NashEquilibriumArticle/assets/2.png'
+import img3 from '@/features/NashEquilibriumArticle/assets/3.png'
+import img4 from '@/features/NashEquilibriumArticle/assets/4.png'
 import {
   Tooltip,
   TooltipContent,
@@ -46,14 +50,8 @@ const NashEquilibriumArticle = forwardRef(function NashEquilibriumArticle(
           <ExternalLink />
         </a>
       </div>
-      <div className="relative z-10 row-span-2">
-        <div className="m-auto w-full h-full lg:grid">
-          <img
-            src={nashEquilibriumImg}
-            alt="Window of Skill Insight application"
-            className="max-h-40 sm:max-h-56 md:max-h-[40vh] lg:max-h-[52vh] max-w-full m-auto rounded-2xl"
-          />
-        </div>
+      <div className="relative z-10 row-span-2 h-[100px] lg:h-full w-full">
+        <Gallery imageSrcs={[img1, img2, img3, img4]} portalId={'2'} />
       </div>
 
       <div className="relative z-10 row-span-2">
