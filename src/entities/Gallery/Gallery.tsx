@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from '@/app/hooks/useActions'
+import useWindowWidth from '@/app/hooks/useWindowWidth'
 import { cn } from '@/app/lib/utils'
 import { setModal } from '@/app/store/slices/modalSlice'
 import Modal from '@/shared/Modal/Modal'
@@ -23,7 +24,8 @@ export default function Gallery({ imageSrcs, portalId }: IGallery) {
   const modal = useAppSelector((state) => state.modal.value)
   const dispatch = useAppDispatch()
   const chosenIndex = useRef(0)
-
+  const isMobile = useWindowWidth() < 600
+  const imageSrcsGallery = isMobile ? imageSrcs.slice(0, 3) : imageSrcs
   const breakpointTo3Cols = 4
 
   useEffect(() => {
@@ -43,7 +45,8 @@ export default function Gallery({ imageSrcs, portalId }: IGallery) {
           'grid-cols-3': imageSrcs.length > breakpointTo3Cols,
         })}
       >
-        {imageSrcs.map((src, index, arr) => {
+        {imageSrcsGallery.map((src, index, arr) => {
+          const isLast = index === arr.length - 1
           return (
             <button
               key={index}
@@ -53,14 +56,14 @@ export default function Gallery({ imageSrcs, portalId }: IGallery) {
                 {
                   'col-span-2':
                     (arr.length <= breakpointTo3Cols &&
-                      index === arr.length - 1 &&
+                      isLast &&
                       arr.length % 2 === 1) ||
                     (arr.length > breakpointTo3Cols &&
-                      index === arr.length - 1 &&
+                      isLast &&
                       arr.length % 3 === 2),
                   'col-span-3':
                     arr.length > breakpointTo3Cols &&
-                    index == arr.length - 1 &&
+                    isLast &&
                     arr.length % 3 === 1,
                 }
               )}
@@ -70,6 +73,13 @@ export default function Gallery({ imageSrcs, portalId }: IGallery) {
                 className="absolute right-0 top-0 h-full w-full bg-cover bg-left scale-110 hover:scale-100 transition-transform"
                 style={{ backgroundImage: `url(${src})` }}
               ></div>
+              {isMobile && isLast && imageSrcs.length > 3 && (
+                <div className="absolute right-0 top-0 h-full w-full bg-muted/80 flex justify-center items-center scale-100 hover:scale-125 transition-transform">
+                  <p className="text-xl font-bold">
+                    +{imageSrcs.length - imageSrcsGallery.length}
+                  </p>
+                </div>
+              )}
             </button>
           )
         })}
@@ -93,8 +103,8 @@ export default function Gallery({ imageSrcs, portalId }: IGallery) {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="ml-10" />
-              <CarouselNext className="mr-10" />
+              <CarouselPrevious className="ml-1 md:ml-10" />
+              <CarouselNext className="mr-1 md:mr-10" />
             </Carousel>
           </Modal>,
           document.body,
