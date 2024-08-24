@@ -4,12 +4,11 @@ import getText from '@/app/locale'
 import Gallery from '@/entities/Gallery/Gallery'
 import SkillCard from '@/entities/SkillCard/SkillCard'
 import bgArticle from '@/features/assets/bgArticle.jpg'
-import img1 from '@/features/SkillInsightArticle/assets/1.png'
-import img2 from '@/features/SkillInsightArticle/assets/2.png'
-import img3 from '@/features/SkillInsightArticle/assets/3.png'
-import img4 from '@/features/SkillInsightArticle/assets/4.png'
-import img5 from '@/features/SkillInsightArticle/assets/5.png'
-import img6 from '@/features/SkillInsightArticle/assets/6.png'
+import img1 from '@/features/InteractiveCardArticle/assets/1.png'
+import img2 from '@/features/InteractiveCardArticle/assets/2.png'
+import img3 from '@/features/InteractiveCardArticle/assets/3.png'
+import img4 from '@/features/InteractiveCardArticle/assets/4.png'
+import img5 from '@/features/InteractiveCardArticle/assets/5.png'
 import {
   Tooltip,
   TooltipContent,
@@ -21,19 +20,17 @@ import { ExternalLink } from 'lucide-react'
 import { forwardRef, LegacyRef, useMemo } from 'react'
 
 const skillNames = [
-  'Electron',
   'TypeScript',
   'JavaScript',
   'React',
   'Webpack',
-  'Node.JS',
   'Redux',
   'TailwindCSS',
   'HTML',
   'CSS',
 ]
 
-const SkillInsightArticle = forwardRef(function SkillInsightArticle(
+const InteractiveCardArticle = forwardRef(function InteractiveCardArticle(
   props,
   ref: LegacyRef<HTMLElement>
 ) {
@@ -47,7 +44,7 @@ const SkillInsightArticle = forwardRef(function SkillInsightArticle(
   return (
     <article
       ref={ref}
-      className="relative flex-grow h-full lg:grid grid-cols-2 gap-3 grid-rows-3 overflow-hidden rounded-2xl p-0 sm:p-5 sm:bg-muted"
+      className="relative flex-grow h-full overflow-hidden lg:grid grid-cols-2 gap-3 grid-rows-3 rounded-2xl p-0 sm:p-5 sm:bg-muted"
     >
       <div
         className="hidden sm:block absolute right-0 top-0 h-full w-full bg-cover bg-left mix-blend-soft-light"
@@ -55,19 +52,16 @@ const SkillInsightArticle = forwardRef(function SkillInsightArticle(
       ></div>
       <div className="relative z-10 flex justify-center items-center text-center font-medium mb-2 lg:mb-0 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl">
         <a
-          href="https://github.com/Slurpeesh/Skill-Insight"
+          href="https://interactive-test-details-form.vercel.app/"
           target="_blank"
           className="flex underline underline-offset-8 decoration-2 justify-center items-center gap-2 hover:text-accent-foreground transition-colors"
         >
-          <h3>Skill Insight</h3>
+          <h3>Interactive Card</h3>
           <ExternalLink />
         </a>
       </div>
       <div className="relative z-10 row-span-2 h-[100px] lg:h-full w-full">
-        <Gallery
-          imageSrcs={[img1, img2, img3, img4, img5, img6]}
-          portalId={'5'}
-        />
+        <Gallery imageSrcs={[img1, img2, img3, img4, img5]} portalId={'2'} />
       </div>
 
       <div className="relative z-10 row-span-2">
@@ -75,7 +69,7 @@ const SkillInsightArticle = forwardRef(function SkillInsightArticle(
           {getText(lang, 'description')}
         </h4>
         <p className="text-sm sm:text-base xl:text-xl">
-          {getText(lang, 'descriptionSkillInsight')}
+          {getText(lang, 'descriptionInteractiveCard')}
         </p>
       </div>
       <div className="relative z-10 flex flex-col">
@@ -101,4 +95,4 @@ const SkillInsightArticle = forwardRef(function SkillInsightArticle(
   )
 })
 
-export default motion(SkillInsightArticle)
+export default motion(InteractiveCardArticle)

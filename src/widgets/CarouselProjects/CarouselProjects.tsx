@@ -7,6 +7,7 @@ import {
 } from '@/entities/Carousel/Carousel'
 import AnonChatArticle from '@/features/AnonChatArticle/AnonChatArticle'
 import DMUUArticle from '@/features/DMUUArticle/DMUUArticle'
+import InteractiveCardArticle from '@/features/InteractiveCardArticle/InteractiveCardArticle'
 import NashEquilibriumArticle from '@/features/NashEquilibriumArticle/NashEquilibriumArticle'
 import SapphireArticle from '@/features/SapphireArticle/SapphireArticle'
 import SkillInsightArticle from '@/features/SkillInsightArticle/SkillInsightArticle'
@@ -25,6 +26,13 @@ export default function CarouselProjects() {
         </CarouselItem>
         <CarouselItem>
           <SkillInsightArticle
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          />
+        </CarouselItem>
+        <CarouselItem>
+          <InteractiveCardArticle
             whileInView={{ opacity: [0, 1] }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}

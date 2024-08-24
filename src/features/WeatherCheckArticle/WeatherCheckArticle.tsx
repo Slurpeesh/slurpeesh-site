@@ -49,7 +49,7 @@ const WeatherCheckArticle = forwardRef(function WeatherCheckArticle(
         </a>
       </div>
       <div className="relative z-10 row-span-2 h-[100px] lg:h-full w-full">
-        <Gallery imageSrcs={[img1, img2]} portalId={'5'} />
+        <Gallery imageSrcs={[img1, img2]} portalId={'6'} />
       </div>
 
       <div className="relative z-10 row-span-2">

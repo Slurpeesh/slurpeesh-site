@@ -60,7 +60,7 @@ const SapphireArticle = forwardRef(function SapphireArticle(
         </a>
       </div>
       <div className="relative z-10 row-span-2 h-[100px] lg:h-full w-full">
-        <Gallery imageSrcs={[img1, img2, img3, img4]} portalId={'3'} />
+        <Gallery imageSrcs={[img1, img2, img3, img4]} portalId={'4'} />
       </div>
 
       <div className="relative z-10 row-span-2">

@@ -51,7 +51,7 @@ const NashEquilibriumArticle = forwardRef(function NashEquilibriumArticle(
         </a>
       </div>
       <div className="relative z-10 row-span-2 h-[100px] lg:h-full w-full">
-        <Gallery imageSrcs={[img1, img2, img3, img4]} portalId={'2'} />
+        <Gallery imageSrcs={[img1, img2, img3, img4]} portalId={'3'} />
       </div>
 
       <div className="relative z-10 row-span-2">
