@@ -55,7 +55,7 @@ export default function Header() {
         observer.unobserve(header)
       }
     }
-  }, [])
+  }, [dispatch])
 
   return (
     <header

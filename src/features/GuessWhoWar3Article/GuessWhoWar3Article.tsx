@@ -3,13 +3,12 @@ import skillsSvg from '@/app/lib/skillsSvg'
 import getText from '@/app/locale'
 import Gallery from '@/entities/Gallery/Gallery'
 import SkillCard from '@/entities/SkillCard/SkillCard'
-import img1 from '@/features/AnonChatArticle/assets/1.png'
-import img2 from '@/features/AnonChatArticle/assets/2.png'
-import img3 from '@/features/AnonChatArticle/assets/3.png'
-import img4 from '@/features/AnonChatArticle/assets/4.png'
-import img5 from '@/features/AnonChatArticle/assets/5.png'
-import img6 from '@/features/AnonChatArticle/assets/6.png'
 import bgArticle from '@/features/assets/bgArticle.jpg'
+import img1 from '@/features/GuessWhoWar3Article/assets/1.png'
+import img2 from '@/features/GuessWhoWar3Article/assets/2.png'
+import img3 from '@/features/GuessWhoWar3Article/assets/3.png'
+import img4 from '@/features/GuessWhoWar3Article/assets/4.png'
+import img5 from '@/features/GuessWhoWar3Article/assets/5.png'
 import {
   Tooltip,
   TooltipContent,
@@ -33,8 +32,8 @@ const skillNames = [
   'CSS',
 ]
 
-const DMUUArticle = motion(
-  forwardRef(function DMUUArticle(_, ref: LegacyRef<HTMLElement>) {
+const GuessWhoWar3Article = motion(
+  forwardRef(function GuessWhoWar3Article(_, ref: LegacyRef<HTMLElement>) {
     const lang = useAppSelector((state) => state.lang.value)
 
     const svgs = useMemo(
@@ -53,26 +52,24 @@ const DMUUArticle = motion(
         ></div>
         <div className="relative z-10 flex justify-center items-center text-center font-medium mb-2 lg:mb-0 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl">
           <a
-            href="https://anon-chat-slurpeesh.vercel.app/"
+            href="https://guess-who-war3.vercel.app/"
             target="_blank"
             className="flex underline underline-offset-8 decoration-2 justify-center items-center gap-2 hover:text-accent-foreground transition-colors"
           >
-            <h3>AnonChat</h3>
+            <h3>GuessWhoWar3</h3>
             <ExternalLink />
           </a>
         </div>
         <div className="relative z-10 row-span-2 h-[100px] lg:h-full w-full">
-          <Gallery
-            imageSrcs={[img1, img2, img3, img4, img5, img6]}
-            portalId={'0'}
-          />
+          <Gallery imageSrcs={[img1, img2, img3, img4, img5]} portalId={'2'} />
         </div>
+
         <div className="relative z-10 row-span-2">
           <h4 className="text-center text-lg sm:text-xl lg:text-2xl font-medium">
             {getText(lang, 'description')}
           </h4>
           <p className="text-sm sm:text-base xl:text-xl">
-            {getText(lang, 'descriptionAnonChat')}
+            {getText(lang, 'descriptionGuessWhoWar3')}
           </p>
         </div>
         <div className="relative z-10 flex flex-col">
@@ -99,4 +96,4 @@ const DMUUArticle = motion(
   })
 )
 
-export default DMUUArticle
+export default GuessWhoWar3Article

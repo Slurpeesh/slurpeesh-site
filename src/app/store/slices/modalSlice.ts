@@ -13,8 +13,8 @@ export const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    setModal: (state, payload: PayloadAction<null | string>) => {
-      state.value = payload.payload
+    setModal: (state, action: PayloadAction<null | string>) => {
+      state.value = action.payload
     },
   },
 })

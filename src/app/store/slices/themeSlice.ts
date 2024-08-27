@@ -5,7 +5,7 @@ const initialTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
   ? 'dark'
   : 'light'
 
-const html = document.querySelector('html')
+const html = document.querySelector('html')!
 html.setAttribute('class', initialTheme)
 
 export interface IThemeState {

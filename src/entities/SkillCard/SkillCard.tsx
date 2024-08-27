@@ -6,15 +6,17 @@ interface ISkillCard {
   className?: string
 }
 
-const SkillCard = forwardRef(function SkillCard(
-  { className, children }: ISkillCard,
-  ref: LegacyRef<HTMLDivElement>
-) {
-  return (
-    <div ref={ref} className={'p-2 lg:p-4 rounded-xl' + ' ' + className}>
-      {children}
-    </div>
-  )
-})
+const SkillCard = motion(
+  forwardRef(function SkillCard(
+    { className, children }: ISkillCard,
+    ref: LegacyRef<HTMLDivElement>
+  ) {
+    return (
+      <div ref={ref} className={'p-2 lg:p-4 rounded-xl' + ' ' + className}>
+        {children}
+      </div>
+    )
+  })
+)
 
-export default motion(SkillCard)
+export default SkillCard

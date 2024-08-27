@@ -1,4 +1,4 @@
-import { throttle } from '@/app/lib/throttle'
+import { throttle } from '@/app/lib/utils'
 import { useEffect, useState } from 'react'
 
 const useWindowWidth = () => {

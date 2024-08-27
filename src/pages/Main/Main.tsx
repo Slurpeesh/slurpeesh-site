@@ -84,7 +84,7 @@ export default function Main() {
         observer.unobserve(questions)
       }
     }
-  }, [])
+  }, [showBackToTop, dispatch])
 
   return (
     <main>
