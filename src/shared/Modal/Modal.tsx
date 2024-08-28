@@ -1,7 +1,7 @@
 import { useAppDispatch } from '@/app/hooks/useActions'
 import { setModal } from '@/app/store/slices/modalSlice'
 import { X } from 'lucide-react'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 
 interface IModal {
   children: ReactNode
@@ -10,6 +10,18 @@ interface IModal {
 
 export default function Modal({ className, children }: IModal) {
   const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    function escapeHandler(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        dispatch(setModal(null))
+      }
+    }
+    addEventListener('keyup', escapeHandler)
+    return () => {
+      removeEventListener('keyup', escapeHandler)
+    }
+  }, [dispatch])
 
   function onHideModal() {
     dispatch(setModal(null))
