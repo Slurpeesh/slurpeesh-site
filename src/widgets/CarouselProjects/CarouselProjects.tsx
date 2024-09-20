@@ -12,6 +12,7 @@ import img2GuessWhoWar3 from '@/widgets/CarouselProjects/assets/guessWhoWar3/2.p
 import img3GuessWhoWar3 from '@/widgets/CarouselProjects/assets/guessWhoWar3/3.png'
 import img4GuessWhoWar3 from '@/widgets/CarouselProjects/assets/guessWhoWar3/4.png'
 import img5GuessWhoWar3 from '@/widgets/CarouselProjects/assets/guessWhoWar3/5.png'
+import img6GuessWhoWar3 from '@/widgets/CarouselProjects/assets/guessWhoWar3/6.png'
 
 import img1AnonChat from '@/widgets/CarouselProjects/assets/anonChat/1.png'
 import img2AnonChat from '@/widgets/CarouselProjects/assets/anonChat/2.png'
@@ -69,6 +70,7 @@ const projectList: Array<IProject> = [
       img3GuessWhoWar3,
       img4GuessWhoWar3,
       img5GuessWhoWar3,
+      img6GuessWhoWar3,
     ],
     skillNames: [
       'TypeScript',

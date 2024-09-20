@@ -95,10 +95,11 @@ export default function Gallery({ imageSrcs, portalId }: IGallery) {
                     className="flex justify-center items-center"
                   >
                     <div className="relative h-[400px] sm:h-[500px] w-[900px]">
-                      <div
-                        className="absolute h-full w-full bg-contain bg-center bg-no-repeat"
-                        style={{ backgroundImage: `url(${src})` }}
-                      ></div>
+                      <img
+                        src={src}
+                        alt=""
+                        className="absolute h-full w-full object-contain"
+                      />
                     </div>
                   </CarouselItem>
                 ))}
