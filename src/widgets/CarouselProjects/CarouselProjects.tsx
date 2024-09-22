@@ -76,6 +76,7 @@ const projectList: Array<IProject> = [
       'TypeScript',
       'JavaScript',
       'React',
+      'React Router',
       'Webpack',
       'Node.JS',
       'Socket.IO',
