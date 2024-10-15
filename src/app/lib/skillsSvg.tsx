@@ -5,6 +5,7 @@ import FigmaSvg from '@/features/svg/FigmaSvg'
 import HtmlSvg from '@/features/svg/HtmlSvg'
 import JsSvg from '@/features/svg/JsSvg'
 import KotlinSvg from '@/features/svg/KotlinSvg'
+import NextjsSvg from '@/features/svg/NextjsSvg'
 import NodejsSvg from '@/features/svg/NodejsSvg'
 import OtherSvg from '@/features/svg/OtherSvg'
 import PythonSvg from '@/features/svg/PythonSvg'
@@ -24,16 +25,17 @@ const skillsSvg = [
   [<JsSvg />, 'JavaScript', 'tooltipJavaScript'],
   [<ReactSvg />, 'React', 'tooltipReact'],
   [<ReactRouterSvg />, 'React Router', 'tooltipReactRouter'],
+  [<NextjsSvg />, 'Next.JS', 'tooltipNextJS'],
   [<WebpackSvg />, 'Webpack', 'tooltipWebpack'],
   [<ViteSvg />, 'Vite', 'tooltipVite'],
   [<ElectronSvg />, 'Electron', 'tooltipElectron'],
   [<NodejsSvg />, 'Node.JS', 'tooltipNodeJS'],
   [<TailwindSvg />, 'TailwindCSS', 'tooltipTailwind'],
-  [<SassSvg />, 'Sass', 'tooltipSass'],
   [<ReduxSvg />, 'Redux', 'tooltipRedux'],
+  [<SocketIOSvg />, 'Socket.IO', 'tooltipSocketIO'],
+  [<SassSvg />, 'Sass', 'tooltipSass'],
   [<HtmlSvg />, 'HTML', 'tooltipHTML'],
   [<CssSvg />, 'CSS', 'tooltipCSS'],
-  [<SocketIOSvg />, 'Socket.IO', 'tooltipSocketIO'],
   [<PythonSvg />, 'Python', 'tooltipPython'],
   [<KotlinSvg />, 'Kotlin', 'tooltipKotlin'],
   [<FigmaSvg />, 'Figma', 'tooltipFigma'],

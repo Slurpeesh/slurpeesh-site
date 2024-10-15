@@ -7,6 +7,12 @@ import {
   CarouselPrevious,
 } from '@/entities/Carousel/Carousel'
 import ProjectArticle from '@/features/ProjectArticle/ProjectArticle'
+import img1SkillInsightSite from '@/widgets/CarouselProjects/assets/skillInsightSite/1.png'
+import img2SkillInsightSite from '@/widgets/CarouselProjects/assets/skillInsightSite/2.png'
+import img3SkillInsightSite from '@/widgets/CarouselProjects/assets/skillInsightSite/3.png'
+import img4SkillInsightSite from '@/widgets/CarouselProjects/assets/skillInsightSite/4.png'
+import img5SkillInsightSite from '@/widgets/CarouselProjects/assets/skillInsightSite/5.png'
+
 import img1GuessWhoWar3 from '@/widgets/CarouselProjects/assets/guessWhoWar3/1.png'
 import img2GuessWhoWar3 from '@/widgets/CarouselProjects/assets/guessWhoWar3/2.png'
 import img3GuessWhoWar3 from '@/widgets/CarouselProjects/assets/guessWhoWar3/3.png'
@@ -61,6 +67,28 @@ interface IProject {
 }
 
 const projectList: Array<IProject> = [
+  {
+    title: 'Skill Insight site',
+    getTextDescriptionKey: 'descriptionSkillInsightSite',
+    imgSrcs: [
+      img1SkillInsightSite,
+      img2SkillInsightSite,
+      img3SkillInsightSite,
+      img4SkillInsightSite,
+      img5SkillInsightSite,
+    ],
+    skillNames: [
+      'TypeScript',
+      'JavaScript',
+      'Next.JS',
+      'React',
+      'Redux',
+      'TailwindCSS',
+      'HTML',
+      'CSS',
+    ],
+    linkToProject: 'https://skill-insight-site.vercel.app/',
+  },
   {
     title: 'GuessWhoWar3',
     getTextDescriptionKey: 'descriptionGuessWhoWar3',

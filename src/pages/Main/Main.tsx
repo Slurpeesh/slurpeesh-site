@@ -117,7 +117,7 @@ export default function Main() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={list}
-          className="relative z-10 flex flex-wrap justify-between gap-2 sm:gap-5 md:gap-10 md:mt-10"
+          className="relative z-10 flex flex-wrap justify-center gap-2 sm:gap-5 md:gap-10 md:mt-10"
         >
           {skills.map((list, index) => (
             <TooltipProvider key={index} delayDuration={0}>
